@@ -14,6 +14,7 @@ function MenuItem({href, active = false, children}) {
         };
 
     const style = {
+        courser: "pointer",
         paddingRight: "3em",
         fontSize: "1.3em",
         textTransform: "uppercase",
@@ -21,7 +22,15 @@ function MenuItem({href, active = false, children}) {
     }
     
     return (
-        <Link href={href} color="#000" style={style}>
+        <Link
+            href={href}
+            onClick={(e) => {
+                e.preventDefault();
+                window.location.href = href;
+            }}
+            color="#000"
+            style={style}
+        >
             {children}
         </Link>
     );

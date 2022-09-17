@@ -11,12 +11,12 @@ function CoinSection() {
                 </Typography>
             </Grid>
             <Grid xs="3" textAlign="right">
-                <Typography>
+                <Typography fontSize="0.8em">
                     $1,234.23
                 </Typography>
             </Grid>
         </Grid>
-        <AccountSection />
+        <AccountSection address={"0x89E5916c19Df9A7e3Da2584F8aD3ee2D2e6Bd3c6"} />
     </>);
 }
   

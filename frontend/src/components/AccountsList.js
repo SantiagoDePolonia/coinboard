@@ -14,6 +14,6 @@ function CoinsList() {
         </Grid>
     );
 }
-  
+
 export default CoinsList;
   

@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Link } from "@mui/material";
 import MenuItem from "./MenuItem";
 
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -9,7 +9,16 @@ function TopBar() {
     <header>
         <Grid container spacing={3} marginBottom="5em" paddingTop="1em">
             <Grid item xs={2}>
-                <img src='/logo-xs.png' alt="Coin Board - logo" style={{width:"100%"}}/>
+                <Link
+                    href={"/"}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = "/";
+                    }}
+                    style={{coursor:"pointer"}}
+                >
+                    <img src='/logo-xs.png' alt="Coin Board - logo" style={{width:"100%"}}/>
+                </Link>
             </Grid>
             <Grid item xs={7} marginTop="1.7em">
                 <MenuItem href="/" active>Accounts</MenuItem>
