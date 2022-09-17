@@ -1,0 +1,1 @@
+// Go to the /settings page

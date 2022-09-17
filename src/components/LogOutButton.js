@@ -1,0 +1,1 @@
+// TODO Log out - disconnect from wallet connect
