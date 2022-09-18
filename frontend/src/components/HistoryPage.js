@@ -1,5 +1,6 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import CircularProgressCenter from "./CircularProgressCenter";
 import TransactionList from "./TransactionList";
 import TransactionTotal from "./TransactionTotal";
 
@@ -40,18 +41,18 @@ const HistoryPage = () => {
                 <Typography> for {address}</Typography>
                 <div style={{paddingTop:"2em", marginBottom:"2em"}}>
                     {!transactions.length ?
-                            "Loading..."
+                            <CircularProgressCenter />
                         :
                             <TransactionList myAddress={address} transactions={transactions} />                                
                     }
                     {!transactionTotal ?
-                            "Loading..."
+                            <CircularProgressCenter />
                         :
                             <TransactionTotal total={transactionTotal} />
                     }
                 </div>
                 <Button variant="outlined" color="secondary" marginBottom="3em">
-                ← Back to your accounts
+                    ← Back to your accounts
                 </Button>
             </Grid>
         </Grid>

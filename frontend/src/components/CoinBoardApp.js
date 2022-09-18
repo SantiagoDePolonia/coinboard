@@ -21,15 +21,13 @@ function CoinBoardApp() {
   });
 
   const { chainSupported, address, chainId, connector } = useAccount();
-  
+
   useEffect(() => {
     Object.keys(prices).forEach(function(key, _index) {
       if(!prices[key]) {
         redstone.getPrice(key).then(response => {
-          console.log("key", key);
           setPrices(prices => ({ ...prices, [key]: response.value }));
         });
-        console.log("prices", prices);
       }
     });
   }, [prices]);
