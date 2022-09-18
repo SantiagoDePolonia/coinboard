@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, Grid, ThemeProvider } from "@mui/material";
 import { Container } from "@mui/system";
 import themeOptions from "../theme";
 import TopBar from "./TopBar";
@@ -8,7 +8,9 @@ import redstone from 'redstone-api';
 import PricesContext from "../contexts/PricesContext";
 import AccountsPage from "./AccountsPage";
 import HistoryPage from "./HistoryPage";
-import InvestmentsPage from "./InwestmentsPage";
+import InvestmentsPage from "./InvestmentsPage";
+
+import { useAccount, ConnectButton } from '@web3modal/react';
 
 const theme = createTheme(themeOptions);
 
@@ -18,6 +20,8 @@ function CoinBoardApp() {
     DOT: undefined
   });
 
+  const { chainSupported, address, chainId, connector } = useAccount();
+  
   useEffect(() => {
     Object.keys(prices).forEach(function(key, _index) {
       if(!prices[key]) {
@@ -30,10 +34,9 @@ function CoinBoardApp() {
     });
   }, [prices]);
 
-  const loggedIn = true;
-  console.log("history", window.location.pathname.indexOf("/history"))
+  const loggedIn = !!address;
+
   return (
-    
     <ThemeProvider theme={theme}>
       <PricesContext.Provider value={prices}>
         <Container fixed>
@@ -43,7 +46,11 @@ function CoinBoardApp() {
               (window.location.pathname.indexOf("/investments") === 0 && <InvestmentsPage />) ||
               (window.location.pathname.indexOf("/history") === 0 && <HistoryPage />)
             :
-              <span>Log in</span>
+              <Grid container justifyContent="center">
+                <Grid item marginTop="8em">
+                  <ConnectButton />
+                </Grid>
+              </Grid>
             }
         </Container>
       </PricesContext.Provider>

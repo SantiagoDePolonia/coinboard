@@ -22,7 +22,7 @@ function TopBar() {
             </Grid>
             <Grid item xs={7} marginTop="1.7em">
                 <MenuItem href="/" active>Accounts</MenuItem>
-                <MenuItem href="/investments">Inwestments</MenuItem>                
+                <MenuItem href="/investments">Investments</MenuItem>                
             </Grid>
             <Grid item xs={3} marginTop="1.7em" textAlign={"right"}>
                 <SettingsIcon />

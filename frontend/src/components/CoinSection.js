@@ -1,7 +1,8 @@
 import { Grid, Typography } from "@mui/material";
 import AccountSection from "./AccountSection";
 
-function CoinSection() {
+function CoinSection({address,balance}) {
+    
     return (<>
         {/* header */}
         <Grid container borderBottom="1px solid #CCC">
@@ -12,11 +13,11 @@ function CoinSection() {
             </Grid>
             <Grid xs="3" textAlign="right">
                 <Typography fontSize="0.8em">
-                    $1,234.23
+                    {balance}
                 </Typography>
             </Grid>
         </Grid>
-        <AccountSection address={"0x89E5916c19Df9A7e3Da2584F8aD3ee2D2e6Bd3c6"} />
+        <AccountSection address={address} balance={balance} />
     </>);
 }
   

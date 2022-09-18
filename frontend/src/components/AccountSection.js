@@ -4,14 +4,14 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 function AccountSection({address}) {
     return (<>
         <Grid container borderBottom="1px solid #CCC" paddingTop="0.7em" paddingBottom="1.2em" alignItems="flex-end">
-            <Grid xs="7">
+            <Grid item xs="7">
                 <Grid container alignItems="flex-end" marginBottom="0.3em">
-                    <Grid xs="7">
+                    <Grid item xs="7">
                         <Typography fontWeight="bold">
                             Account 1 (wolny.eth)
                         </Typography>
                     </Grid>
-                    <Grid xs="5">
+                    <Grid item xs="5">
                         <Button
                             style={{lineHeight:"0.8em", position:"relative", top: "-0.4em"}}
                             color="secondary" variant="outlined" size="small" onClick={(e) => {
@@ -24,7 +24,7 @@ function AccountSection({address}) {
                         <Button
                             style={{lineHeight:"0.8em", position:"relative", top: "-0.4em", marginLeft:"0.5em"}}
                             color="secondary" variant="outlined" size="small" 
-                            href={`https://buy.ramp.network/?userAddress=${address}`}
+                            href={`https://buy.ramp.network/?userAddress=${address}&defaultAsset=ETH_ETH`}
                             target="_blank"
                         >
                             TOP UP
@@ -42,12 +42,12 @@ function AccountSection({address}) {
                     </a> {address}
                 </Typography>
             </Grid>
-            <Grid xs="2" textAlign="right">
+            <Grid item xs="2" textAlign="right">
                 <Typography fontWeight={"bold"} fontSize="1.2em">
                     $1,234.23
                 </Typography>
             </Grid>
-            <Grid xs="3" textAlign="right">
+            <Grid item xs="3" textAlign="right">
                 <Button variant="contained" style={{paddingLeft:"40px",paddingRight:"40px"}}>
                     TRANSFER
                 </Button>
