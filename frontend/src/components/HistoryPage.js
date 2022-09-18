@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import TransactionList from "./TransactionList";
 import TransactionTotal from "./TransactionTotal";
@@ -32,13 +32,13 @@ const HistoryPage = () => {
 
     return (
         <Grid container>
-            <Grid xs="2"></Grid>
-            <Grid xs="8">
+            <Grid item xs="2"></Grid>
+            <Grid item xs="8">
                 <Typography variant="h4" style={{fontWeight:"bold"}}>
                     Transaction history - last 30 days
                 </Typography>
                 <Typography> for {address}</Typography>
-                <div style={{paddingTop:"2em", marginBottom:"5em"}}>
+                <div style={{paddingTop:"2em", marginBottom:"2em"}}>
                     {!transactions.length ?
                             "Loading..."
                         :
@@ -50,6 +50,9 @@ const HistoryPage = () => {
                             <TransactionTotal total={transactionTotal} />
                     }
                 </div>
+                <Button variant="outlined" color="secondary" marginBottom="3em">
+                ← Back to your accounts
+                </Button>
             </Grid>
         </Grid>
     )

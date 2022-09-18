@@ -1,7 +1,8 @@
 import { Button, Grid, Typography } from "@mui/material";
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import Price from "./Price";
 
-function AccountSection({address}) {
+function AccountSection({address, balance}) {
     return (<>
         <Grid container borderBottom="1px solid #CCC" paddingTop="0.7em" paddingBottom="1.2em" alignItems="flex-end">
             <Grid item xs="7">
@@ -43,9 +44,7 @@ function AccountSection({address}) {
                 </Typography>
             </Grid>
             <Grid item xs="2" textAlign="right">
-                <Typography fontWeight={"bold"} fontSize="1.2em">
-                    $1,234.23
-                </Typography>
+                <Price price={balance} fontWeight={"bold"} fontSize="1.2em"/>
             </Grid>
             <Grid item xs="3" textAlign="right">
                 <Button variant="contained" style={{paddingLeft:"40px",paddingRight:"40px"}}>

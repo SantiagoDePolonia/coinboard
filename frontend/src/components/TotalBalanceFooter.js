@@ -1,5 +1,5 @@
 
-function TotalBalanceFooter() {
+function TotalBalanceFooter({balance}) {
   return (
     <footer>
     </footer>

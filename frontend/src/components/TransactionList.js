@@ -2,6 +2,7 @@ import { Grid, Typography } from "@mui/material";
 import moment from 'moment';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Price from "./Price";
 
 function TransactionList({transactions, myAddress}) {
     const transactionList = transactions.map(transaction => {
@@ -17,7 +18,7 @@ function TransactionList({transactions, myAddress}) {
         const valueEth = parseFloat(transaction.value) / 1000000000000000000.0;
         return (
             <Grid container key={transaction.hash} alignItems="flex-end" paddingTop="0.7em" paddingBottom="0.7em" borderTop="1px solid #CCC">
-                <Grid xs={5} textAlign={"left"}>
+                <Grid item xs={5} textAlign={"left"}>
                     <Typography style={{fontSize: "1.2em"}}>
                         {datetime}
                     </Typography>
@@ -25,15 +26,13 @@ function TransactionList({transactions, myAddress}) {
                         {address1}
                     </Typography>
                 </Grid>
-                <Grid xs={2} textAlign={"center"}>
+                <Grid item xs={2} textAlign={"center"}>
+                    <Price price={valueEth} fontWeight="bold"/>
                     <Typography color={"secondary"}>
                         {icon}
                     </Typography>
                 </Grid>
-                <Grid xs={5} textAlign={"right"}>
-                    <Typography>
-                        {valueEth} ETH
-                    </Typography>
+                <Grid item xs={5} textAlign={"right"}>
                     <Typography style={{fontSize: "0.85em"}}>
                         {address2}
                     </Typography>
